@@ -1,0 +1,50 @@
+{
+  "name": "bus train",
+  "groups": [
+    {
+      "key": "flowableAdministrator",
+      "name": "Flowable Administrator"
+    },
+    {
+      "key": "flowableUser",
+      "name": "Flowable Flowable User"
+    },
+    {
+      "key": "trainAdministrator",
+      "name": "bus train Administrator"
+    },
+    {
+      "key": "trainUser",
+      "name": "bus train User"
+    }
+  ],
+  "users": [
+    {
+      "firstName": "Flowable",
+      "lastName": "Admin",
+      "login": "admin",
+      "email": "admin@train.bus.com",
+      "language": "en",
+      "theme": "flowable",
+      "userDefinitionKey": "admin-flowable"
+    },
+    {
+      "firstName": "train",
+      "lastName": "Admin",
+      "login": "train.admin",
+      "email": "train.admin@train.bus.com",
+      "language": "en",
+      "theme": "flowable",
+      "userDefinitionKey": "admin-train"
+    },
+    {
+      "firstName": "train",
+      "lastName": "User",
+      "login": "train.user",
+      "email": "train.user@train.bus.com",
+      "language": "en",
+      "theme": "flowable",
+      "userDefinitionKey": "user-train"
+    }
+  ]
+}
