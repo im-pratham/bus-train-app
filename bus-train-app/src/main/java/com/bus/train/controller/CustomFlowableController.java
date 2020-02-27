@@ -5,6 +5,9 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
+
+import com.google.common.collect.ImmutableMap;
 
 import org.flowable.engine.RepositoryService;
 import org.flowable.engine.repository.ProcessDefinition;
@@ -12,7 +15,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import lombok.RequiredArgsConstructor;
-
 
 /*
  *  TODO:
@@ -24,7 +26,6 @@ import lombok.RequiredArgsConstructor;
  *  - Complete a specific task by task id
  *  - Get the image representing the current state of a process by process Id
  *  Either use a REST client (like [Postman] to interact with your API or create your own web application client interface)
- * 
  * 
  */
 
@@ -45,16 +46,9 @@ public class CustomFlowableController {
         List<ProcessDefinition> processDefinitionList = this.repositoryService.createProcessDefinitionQuery()
                 .latestVersion().startableByUser(principal.getName()).list();
 
-        List<Map<String, String>> customProcessDefinitionList = new ArrayList<>();
-
-        for (ProcessDefinition processDefinition : processDefinitionList) {
-            Map<String, String> map = new LinkedHashMap<>();
-            map.put("key", processDefinition.getKey());
-            map.put("name", processDefinition.getName());
-            customProcessDefinitionList.add(map);
-        }
-
-        return customProcessDefinitionList;
+        return processDefinitionList.stream().map((pd) -> {
+            return ImmutableMap.of("key", pd.getKey(), "name", pd.getName());
+        }).collect(Collectors.toList());
 
     }
 
