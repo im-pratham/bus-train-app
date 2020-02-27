@@ -54,6 +54,21 @@ If you need a clean state for the database and elasticsearch just execute `docke
 The volumes will be recreated as soon as you restart the containers.  
 BE CAREFUL AS WITH THIS YOU WILL LOOSE ALL YOUR DATA STORED IN THE DATABASE AND ELASTICSEARCH!
 
+## JSON Server
+
+In the `json-server` folder you can start a simple [Javascript JSON server](https://github.com/typicode/json-server). It can be used to simulate a REST API.
+
+The following endpoint is available to simulate calls to a service that can fail:
+
+- GET http://localhost:3000/canfail
+
+In the `db.json` you can put data to be used in your fake REST API, for instance:
+
+- GET http://localhost:3000/posts
+
+The JSON server automatically supports the rest of the HTTP verbs like POST, PUT or DELETE.
+
+
 ## Sample users
 
 | User | User Definition Key | Login | Password |

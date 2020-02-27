@@ -1,0 +1,16 @@
+{
+  "posts": [
+    {
+      "userId": 1234,
+      "id": 1,
+      "title": "Lorem ipsum",
+      "body": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+    },
+    {
+      "userId": 4321,
+      "id": 2,
+      "title": "Dolor sit amet",
+      "body": "Quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto"
+    }
+  ]
+}
