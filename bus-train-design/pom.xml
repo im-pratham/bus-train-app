@@ -60,11 +60,6 @@
             <version>${com.flowable.platform.version}</version>
         </dependency>
         <dependency>
-            <groupId>com.flowable.engage</groupId>
-            <artifactId>flowable-engage-palette</artifactId>
-            <version>${com.flowable.platform.version}</version>
-        </dependency>
-        <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
         </dependency>
