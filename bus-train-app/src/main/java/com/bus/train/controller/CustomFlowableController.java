@@ -7,11 +7,17 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+import com.bus.train.model.Fruit;
+import com.bus.train.service.FruitService;
+import com.flowable.dataobject.api.runtime.DataObjectInstance;
+import com.flowable.dataobject.api.runtime.DataObjectRuntimeService;
+import com.flowable.dataobject.engine.DataObjectEngine;
 import com.google.common.collect.ImmutableMap;
 
 import org.flowable.engine.RepositoryService;
 import org.flowable.engine.repository.ProcessDefinition;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import lombok.RequiredArgsConstructor;
@@ -34,6 +40,8 @@ import lombok.RequiredArgsConstructor;
 public class CustomFlowableController {
 
     private final RepositoryService repositoryService;
+    private final DataObjectRuntimeService dataObjectRuntimeService;
+    private final FruitService fruitService;
 
     @GetMapping("/principal")
     public String principal(Principal principal) {
@@ -50,6 +58,16 @@ public class CustomFlowableController {
             return ImmutableMap.of("key", pd.getKey(), "name", pd.getName());
         }).collect(Collectors.toList());
 
+    }
+
+    @GetMapping("/fruits")
+    public List<Fruit> getFruits() {
+        return fruitService.getFruits();
+    }
+
+    @GetMapping("fruits/{id}")
+    public Fruit getFruit(@PathVariable int id) {
+        return fruitService.getFruit(id);
     }
 
 }
