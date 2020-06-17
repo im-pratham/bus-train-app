@@ -68,7 +68,6 @@ In the `db.json` you can put data to be used in your fake REST API, for instance
 
 The JSON server automatically supports the rest of the HTTP verbs like POST, PUT or DELETE.
 
-
 ## Sample users
 
 | User | User Definition Key | Login | Password |
@@ -76,6 +75,27 @@ The JSON server automatically supports the rest of the HTTP verbs like POST, PUT
 | Flowable Administrator | admin-flowable | admin | test |
 | train Administrator | admin-train | train.admin | test |
 | train User | user-train | train.user | test |
+
+## Dataobjects App
+
+Sample application to show how to use dataobjects based in database tables (with an associated app Liquibase changelog) or based in REST calls.
+
+Do not forget to:
+
+1. Start the [JSON server](#json-server).
+2. Apply the `fruitsLiquibaseChangelog` [Schema definition in Flowable Control](http://localhost:8092/#/dataobject-schema-definitions).
+
+There are two kind of objects in this application: fruits and posts. Ok. Totally unrelated. Bear with me anyway. The fruits objects are persisted in the database, in the `fruits` table. The posts are persisted in the db.json file from the json-server.
+
+Included models:
+
+- Fruits Manager Case
+  - Shows the current fruits with a task. This task has a form with a data table linked to a REST service (created ad-hoc)
+  - Create a Fruit (with a process and a `create` dataobject-bounded form in a user task)
+  - Delete a Fruit (with a process with a task to select the fruit and a service registry task that calls the delete operation of the Fruits service model dataobject)
+- Posts Manager Case
+  - Shows the existing posts with a task. This task includes a form with a data table linked to a REST service (from the JSON server)
+  - Create a Post (with a process and a `create` dataobject-bounded form in a user task)
 
 ## Change Log
 
