@@ -4,7 +4,7 @@ import com.bus.train.model.Fruit;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface FruitsRepository extends JpaRepository<Fruit,Integer>{
+public interface FruitsRepository extends JpaRepository<Fruit,String>{
 
     
 }

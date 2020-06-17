@@ -1,7 +1,6 @@
 package com.bus.train.service;
 
 import java.util.List;
-import java.util.Optional;
 
 import com.bus.train.model.Fruit;
 import com.bus.train.repository.FruitsRepository;
@@ -19,7 +18,7 @@ public class FruitService {
         return fruitsRepository.findAll();
     }
 
-    public Fruit getFruit(int id) {
+    public Fruit getFruit(String id) {
         return fruitsRepository.findById(id).orElse(new Fruit());
     }
     

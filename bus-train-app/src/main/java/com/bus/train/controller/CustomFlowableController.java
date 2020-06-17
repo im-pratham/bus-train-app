@@ -1,17 +1,12 @@
 package com.bus.train.controller;
 
 import java.security.Principal;
-import java.util.ArrayList;
-import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
 import com.bus.train.model.Fruit;
 import com.bus.train.service.FruitService;
-import com.flowable.dataobject.api.runtime.DataObjectInstance;
-import com.flowable.dataobject.api.runtime.DataObjectRuntimeService;
-import com.flowable.dataobject.engine.DataObjectEngine;
 import com.google.common.collect.ImmutableMap;
 
 import org.flowable.engine.RepositoryService;
@@ -23,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 import lombok.RequiredArgsConstructor;
 
 /*
- *  TODO:
+ *  Exercise:
  * 
  *  Create REST endpoints to:
  *  - Get the list of available definitions (keys and names)
@@ -40,7 +35,6 @@ import lombok.RequiredArgsConstructor;
 public class CustomFlowableController {
 
     private final RepositoryService repositoryService;
-    private final DataObjectRuntimeService dataObjectRuntimeService;
     private final FruitService fruitService;
 
     @GetMapping("/principal")
@@ -66,7 +60,7 @@ public class CustomFlowableController {
     }
 
     @GetMapping("fruits/{id}")
-    public Fruit getFruit(@PathVariable int id) {
+    public Fruit getFruit(@PathVariable String id) {
         return fruitService.getFruit(id);
     }
 
